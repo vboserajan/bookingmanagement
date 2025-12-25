@@ -28,9 +28,8 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
-                    .requestMatchers("/api/tasks").permitAll()
-                    .requestMatchers("/api/users").permitAll()
-                    .requestMatchers("/api/tasks/export/csv").permitAll()
+                    .requestMatchers("/api/tasks/**").permitAll()
+                    .requestMatchers("/api/users/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/", "/index.html", "/static/**", "/assets/**", "/*.js", "/*.css", "/*.ico", "/*.png", "/*.svg").permitAll()
                 .anyRequest().authenticated()
